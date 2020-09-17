@@ -21,18 +21,18 @@ window.onload = function () {
 		clickable = document.querySelector('.clickable'),
 		sb = [],
 		c = [];
-	for (i = 0; i < ss.length; i++) {								//таблица значений [ind][num]
+	for (i = 0; i < ss.length; i++) {								// нумерация блоков и контентов [ind][num]
 		sb[i] = ss[i].querySelectorAll('.second__block');
 	}
 	for (i = 0; i < contind.length; i++) {
 		c[i] = contind[i].querySelectorAll('.cont__ind_num');
 	}
-	var ind = 0, 													//нумерация кликабельных элементов
+	var ind = 0, 													// [ind][num]
 		num = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		scroll = true;												//разрешить скролл
+		scroll = true;												// разрешить скролл
 	// 1.1 НАЗНАЧЕНИЕ ОТСТУПОВ
-	var winw = window.innerWidth,									//?значения размеров, отступов
-		winh = window.innerHeight,
+	var w = window.innerWidth,									// ?значения размеров, отступов
+		h = window.innerHeight,
 		mleft = 300,
 		mtop = 200,
 		miconsize = 90,
@@ -42,29 +42,22 @@ window.onload = function () {
 		stop = 190,
 		smargintop = 100;
 	// 1.2 РЕСАЙЗ + ПЕРЕНАЗНАЧЕНИЕ ОТСТУПОВ
-	window.addEventListener('resize', function (event) {			//?ресайз + переназначение отступов
-		winw = window.innerWidth;
-		winh = window.innerHeight;
+	window.addEventListener('resize', function (event) {			// ?ресайз + переназначение отступов
+		w = window.innerWidth;
+		h = window.innerHeight;
 
 	});
 
-	document.querySelector('.nojs').remove();						//?выполнить после загрузки
-	document.querySelector('.nojs__links').remove();
-	document.querySelector('.main').style.opacity = 1;
-	document.querySelector('.mainx__right').style.animation = "pulse 1.5s ease-in-out 3s alternate infinite";
-	document.querySelector('.hi').style.animation = "hi 2.5s linear 1s";
-	ss[0].style.overflow = "visible";								
-	ss[0].style.opacity = 1;
+	document.querySelector('.nojs').remove();						// ?выполнить после загрузки
+	ms.style.opacity = 1;
+	mx[1].style.animation = "pulse 1.5s ease-in-out 3s alternate infinite";
+	document.querySelector('.hi').style.animation = "hi 2s linear 1s";
 
 	//2 НАВИГАЦИЯ ПО САЙТУ КЛИКАМИ======================================================================================================
-	for (i = 0; i < mb.length; i++) {							//  click-listeners
+	for (i = 0; i < mb.length; i++) {							// click-listeners
 		mb[i].addEventListener("click", Mclick, false);
 	}
-	for (i = 0; i < mb.length; i++) {							//  click-listeners
-		for (j = 0; j < sb[i].length; j++) {
-			sb[i][j].addEventListener("click", Sclick, false);
-		}
-	}
+
 	mx[0].onclick = function () {								// click-listener
 		if (ind > 0) { ind-- }
 		whatMainHappen();
@@ -83,13 +76,16 @@ window.onload = function () {
 			}
 		}
 		whatMainHappen();
+		for (j = 0; j < sb[ind].length; j++) {					// click-listeners
+			sb[ind][j].addEventListener("click", Sclick, false);
+		}
 	}
 	function Sclick() {											//действия при кликах на Second Slider
 		for (i = 0; i < sb[ind].length; i++) {
 			if (sb[ind][i] == this) {
 				if (i == num[ind]) {													// calling content
 					CallCont();
-					document.querySelector('.close').onclick = RemoveCont;				// remove content
+					close.onclick = RemoveCont;											// remove content
 					clickable.onclick = RemoveCont;
 				}
 				else {
@@ -141,7 +137,8 @@ window.onload = function () {
 		scroll = false;
 		ms.style.top = -500;
 		ss[ind].style.left = -1500;
-		MainxOpac();
+		mx[0].style.animation = "none";
+		mx[1].style.animation = "none";
 		cont.style.opacity = 1;
 		cont.style.transform = "scale(1)";
 		clickable.style.transform = "scale(1)";
@@ -189,7 +186,7 @@ window.onload = function () {
 			}
 		}
 	}
-//END ================================================================================================================
+	//END ================================================================================================================
 }
 
 
