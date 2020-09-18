@@ -6,3 +6,9 @@ body {
 a {
   color: #f7f1e3;
 }
+
+.cont__ind_num a {
+  color: #34ace0;
+  font-weight: 900;
+  text-decoration: underline;
+}
