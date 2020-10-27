@@ -1,14 +1,9 @@
+@font-face {
+  font-family: "poiretOneRegular";
+  src: url("../fonts/PoiretOne-Regular.woff2") format("woff2"), url("../fonts/PoiretOne-Regular.woff") format("woff");
+}
+
 body {
-  font-family: "Poiret One", "Times New Roman", sans-serif;
   color: #f7f1e3;
-}
-
-a {
-  color: #f7f1e3;
-}
-
-.cont__ind_num a {
-  color: #34ace0;
-  font-weight: 900;
-  text-decoration: underline;
+  font-family: "poiretOneRegular";
 }

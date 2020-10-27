@@ -1,388 +1,195 @@
-//START ==============================
-// 1 ОБЪЯВЛЕНИЕ ПЕРЕМЕННЫХ
-// 		1.1 НАЗНАЧЕНИЕ ОТСТУПОВ
-// 		1.2 РЕСАЙЗ + ПЕРЕНАЗНАЧЕНИЕ ОТСТУПОВ
-// 2 НАВИГАЦИЯ ПО САЙТУ КЛИКАМИ
-//		2.1 ОБЬЯВЛЕНИЕ ФУНКЦИЙ НАВИГАЦИИ 
-//3 НАВИГАЦИЯ СКРОЛЛИНГОМ
-//END ==============================
+"use strict";
 
+// !Получаем доступ ко всем элементам =====================
+var arrowl = document.querySelector('.arrow_left'),
+    arrowr = document.querySelector('.arrow_right'),
+    hor = document.querySelector('.horizontal'),
+    allver = document.querySelector('.allvertical'),
+    ver = document.querySelectorAll('.vertical'),
+    horbut = document.querySelectorAll('.horizontal__button'),
+    group = document.querySelectorAll('.group');
+var verbut = [],
+    info = [];
 
-
-
-//START ==============================
-window.onload = function () {
-
-	// 1 ОБЪЯВЛЕНИЕ ПЕРЕМЕННЫХ
-	var ms = document.querySelector('.main'),						// доступ ко всем элементам
-		mb = document.querySelectorAll('.main__block'),
-		mx = document.querySelectorAll('.mainx'),
-		ss = document.querySelectorAll('.second'),
-		cont = document.querySelector('.cont'),
-		contind = document.querySelectorAll('.cont__ind'),
-		clickable = document.querySelector('.clickable'),
-		sb = [],
-		c = [];
-	for (i = 0; i < ss.length; i++) {								// нумерация блоков и контентов [ind][num]
-		sb[i] = ss[i].querySelectorAll('.second__block');
-	}
-	for (i = 0; i < contind.length; i++) {
-		c[i] = contind[i].querySelectorAll('.cont__ind_num');
-	}
-	var ind = 0, 													// [ind][num]
-		num = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],		
-		scroll = true,												// разрешить скролл
-		color = 1;												
-	// 1.1 НАЗНАЧЕНИЕ ОТСТУПОВ
-	var w = window.innerWidth,									// ?значения размеров, отступов
-		h = window.innerHeight,
-		mleft = 300,
-		mtop = 200,
-		miconsize = 90,
-		miconmargin = 45,
-		mblocksize = miconsize + 2 * miconmargin,
-		sleft = 300,
-		stop = 190,
-		smargintop = 100;
-		// mx[1].style.animation = "pulse 1.5s ease-in-out 3s alternate infinite";
-	// 1.2 РЕСАЙЗ + ПЕРЕНАЗНАЧЕНИЕ ОТСТУПОВ
-	window.addEventListener('resize', function (event) {			// ?ресайз + переназначение отступов
-		w = window.innerWidth;
-		h = window.innerHeight;
-
-	});
-
-	document.querySelector('.nojs').remove();						// ?выполнить после загрузки
-	ms.style.opacity = 1;
-	document.querySelector('.hi').style.animation = "hi 2s linear 1s";
-
-	// c[2][0].style.opacity = 1;
-	// c[2][0].style.transform = "translate(-50%, -50%) scale(1)";
-
-
-
-	//2 НАВИГАЦИЯ ПО САЙТУ КЛИКАМИ======================================================================================================
-	for (i = 0; i < mb.length; i++) {							// click-listeners
-		mb[i].addEventListener("click", Mclick, false);
-	}
-	mx[0].onclick = function () {								// click-listener
-		if (ind > 0) { ind-- }
-		whatMainHappen();
-	}
-	mx[1].onclick = function () {								// click-listener
-		if (ind < 7) { ind++ }
-		whatMainHappen();
-	}
-
-	//2.1 ОБЬЯВЛЕНИЕ ФУНКЦИЙ НАВИГАЦИИ 
-	function Mclick() {											//действия при кликах на Main Slider
-		for (i = 0; i < mb.length; i++) {
-			if (mb[i] == this) {
-				ind = i;
-				console.log(ind + ";" + num[ind] + " - Mclick" + " : " + sb[ind].length + " elems");
-			}
-		}
-		whatMainHappen();
-		for (j = 0; j < sb[ind].length; j++) {							// click-listeners
-			sb[ind][j].addEventListener("click", Sclick, false);
-		}
-	}
-	function Sclick(event) {											//действия при кликах на Second Slider
-		for (i = 0; i < sb[ind].length; i++) {
-			if (sb[ind][i] == this) {
-				if (i !== num[ind]) {
-					event.preventDefault();
-					num[ind] = i;
-					console.log(ind + ";" + num[ind] + " - Sclick");
-					whatSecondHappen();									// calling content
-				}
-				else {
-					console.log(ind + ";" + num[ind] + " - Selected")
-					if (this == sb[7][1]) {								//Color theme & FLIP ICON
-						let fl0 = 90 + color * 90;
-						let fl1 = fl0 + 180;
-						let flip = this.querySelectorAll('.flip__square');
-						flip[0].style.transform = "rotateY(" + fl0 + "deg)";
-						flip[1].style.transform = "rotateY(" + fl1 + "deg)";
-						console.log("Flip");
-						color = color * (-1);
-						if (color == -1) {
-							document.body.style = "background-color: #b33939; background: linear-gradient(to bottom, #000000, #b33939 40%, #b33939 60%, #000000);"
-						}
-						else {
-							document.body.style = "background-color: #2c2c54; background: linear-gradient(to bottom, #000000, #40407a 40%, #40407a 60%, #000000);"
-						}
-					};
-					if (!this.classList.contains('not-active')) {
-						CallCont();
-					}
-				}
-			}
-		}
-	}
-
-	function whatMainHappen() {
-		for (i = 0; i < mb.length; i++) {
-			ss[i].style.overflow = "hidden"
-			ss[i].style.opacity = 0;
-			mb[i].classList.add("main__selectable");
-			mb[i].classList.remove("main__selected");
-		}
-		ss[ind].style.overflow = "visible"
-		ss[ind].style.opacity = 1;
-		ms.style.top = mtop;
-		ms.style.left = mleft - ind * mblocksize;
-		mb[ind].classList.remove("main__selectable");
-		mb[ind].classList.add("main__selected");
-		MainxOpac();
-	}
-	function whatSecondHappen() {
-		for (i = 0; i < sb[ind].length; i++) {
-			sb[ind][i].classList.add("second__selectable");
-			sb[ind][i].classList.remove("second__selected");
-		}
-		ss[ind].style.top = stop - num[ind] * smargintop;
-		sb[ind][num[ind]].classList.remove("second__selectable");
-		sb[ind][num[ind]].classList.add("second__selected");
-	}
-
-	function MainxOpac() {
-		if (ind == 0) {
-			mx[0].style.animation = "none"
-		}
-		else if (ind == 7) {
-			mx[1].style.animation = "none"
-		}
-		else {
-			mx[0].style.animation = "pulse 1.5s ease-in-out 0s alternate infinite";
-			mx[1].style.animation = "pulse 1.5s ease-in-out 0s alternate infinite";
-		}
-	}
-	function CallCont() {
-		scroll = false;
-		ms.style.top = -500;
-		ss[ind].style.left = -1500;
-		mx[0].style.animation = "none";
-		mx[1].style.animation = "none";
-		c[ind][num[ind]].style.opacity = 1;
-		c[ind][num[ind]].style.transform = "translate(-50%, -50%) scale(1)";
-		clickable.style.transform = "scale(1)";
-		let div = document.createElement('div');													//Вставить крестик в контент
-		div.className = "close";
-		div.innerHTML = "X";
-		c[ind][num[ind]].prepend(div);
-		document.querySelector('.close').onclick = RemoveCont;										// remove content
-		clickable.onclick = RemoveCont;
-	}
-	function RemoveCont() {
-		scroll = true;
-		ms.style.top = mtop;
-		ss[ind].style.left = sleft;
-		c[ind][num[ind]].style.opacity = 0;
-		c[ind][num[ind]].style.transform = "translate(-50%, -50%) scale(0)";
-		clickable.style.transform = "scale(0)";
-		document.querySelector('.close').remove()
-		MainxOpac();
-	}
-
-
-
-
-	//================================================================================================================
-	//3 НАВИГАЦИЯ СКРОЛЛИНГОМ
-	elem = document;
-	if (elem.addEventListener) {
-		if ('onwheel' in document) {
-			elem.addEventListener("wheel", onWheel);				// IE9+, FF17+, Ch31+
-		} else if ('onmousewheel' in document) {
-			elem.addEventListener("mousewheel", onWheel);			// устаревший вариант события
-		} else {
-			elem.addEventListener("MozMousePixelScroll", onWheel);	// Firefox < 17
-		}
-	} else {
-		elem.attachEvent("onmousewheel", onWheel);					// IE8-
-	}
-	function onWheel(e) {
-		if (scroll) {
-			delta = e.deltaY || e.detail || e.wheelDelta;
-			if (sb[ind].length > 1) {
-				if (num[ind] < 1) {
-					if (delta > 0) { num[ind]++ }
-				}
-				else if (num[ind] < sb[ind].length - 1) {
-					if (delta > 0) { num[ind]++ }
-					else { num[ind]-- }
-				}
-				else {
-					if (delta < 0) { num[ind]-- }
-				}
-				whatSecondHappen();
-				console.log(ind + ";" + num[ind] + " - wheel")
-			}
-		}
-	}
-	//END ================================================================================================================
+for (var i = 0; i < ver.length; i++) {
+  verbut[i] = ver[i].querySelectorAll('.vertical__button');
 }
 
-
-// //START ==============================
-// window.onload = function () {
-// 	document.querySelector('.nojs').remove();
-// 	document.querySelector('.main').style.opacity = 1;
-// 	document.querySelector('.hi').style.animation = "hi 2.5s linear 1s";
-// }
-
-// setTimeout(function () {
-// 	ms.style.left = winw / 2 - 100;
-// }, 3000);
-
-// //Обьявление переменных ==============
-// const ms = document.querySelector('.main'),
-// 	mb = document.querySelectorAll('.main__block'),
-// 	x = document.querySelectorAll('.x'),
-// 	ss = document.querySelectorAll('.second'),
-// 	cont = document.querySelectorAll('.cont');
-// var sb = [],
-// 	c = [];
-// for (i = 0; i < ss.length; i++) {
-// 	sb[i] = ss[i].querySelectorAll('.second__block');
-// }
-// for (i = 0; i < cont.length; i++) {
-// 	c[i] = cont[i].querySelectorAll('.content');
-// }
-// var scroll = true;
-
-// var ind = 0, 												//индекс кликабельных элементов
-// 	num = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// 	anykey = true;
+for (var _i = 0; _i < group.length; _i++) {
+  info[_i] = group[_i].querySelectorAll('.info');
+} // !Индексирование все элементов по Х и У +  прочие элементы================
 
 
-// var winw = window.innerWidth,
-// 	winh = window.innerHeight,
-// 	mleft = 350; 											//значения размеров, отступов
-// window.addEventListener('resize', function (event) {
-// 	winw = window.innerWidth;
-// 	winh = window.innerHeight;
+var hind = 0,
+    vind = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var scroll = true; // !Размеры и расстояния =================================
 
-// });
+var vw = window.innerWidth,
+    vh = window.innerHeight,
+    horleftpos,
+    allverleftpos,
+    horlefttrans,
+    allverlefttrans,
+    allvertoppos,
+    vertoptrans;
+Resize();
+window.addEventListener('resize', Resize);
 
-// function whatMainHappen() {
-// 	for (i = 0; i < mb.length; i++) {
-// 		ss[i].style.overflow = "hidden"
-// 		ss[i].style.opacity = 0;
-// 		mb[i].classList.add("mainselectable");
-// 		mb[i].classList.remove("mainselected");
-// 	}
-// 	ss[ind].style.overflow = "visible"
-// 	ss[ind].style.opacity = 1;
-// 	ms.style.left = mleft - ind * 200;
-// 	ms.style.top = 300;
-// 	mb[ind].classList.remove("mainselectable");
-// 	mb[ind].classList.add("mainselected");
-// }
-// function whatSecondHappen() {
-// 	for (i = 0; i < sb[ind].length; i++) {
-// 		sb[ind][i].classList.add("selectable");
-// 		sb[ind][i].classList.remove("selected");
-// 	}
-// 	ss[ind].style.top = 300 - num[ind] * 140;
-// 	sb[ind][num[ind]].classList.remove("selectable");
-// 	sb[ind][num[ind]].classList.add("selected");
-// }
+function Resize() {
+  if (vw < 768) {
+    horleftpos = 0;
+    allverleftpos = 0;
+    horlefttrans = vw;
+    allverlefttrans = 200;
+    allvertoppos = 0;
+    vertoptrans = 100;
+  } else {
+    horleftpos = 0.3 * vw, allverleftpos = 0.3 * vw, horlefttrans = 200, allverlefttrans = 200;
+    allvertoppos = 0.3 * vh;
+    vertoptrans = 100;
+  }
 
+  console.log('Resized:' + ' horleftpos:' + horleftpos + '; allverleftpos:' + allverleftpos + '; horlefttrans:' + horlefttrans + '; allverlefttrans:' + allverlefttrans + '; allvertoppos:' + allvertoppos + '; vertoptrans:' + vertoptrans);
+} // !Действие ===========================================
 
 
-// //main click =========================
-// for (i = 0; i < mb.length; i++) {
-// 	mb[i].onclick = Mclick;
-// }
-// function Mclick() {
-// 	for (i = 0; i < mb.length; i++) {
-// 		if (mb[i] == this) {
-// 			ind = i;
-// 			console.log(ind + ";" + num[ind] + " - Mclick" + " : " + sb[ind].length + " elems");
-// 			x[0].style.opacity = 1;
-// 			x[1].style.opacity = 1;
-// 			whatMainHappen();
-// 		}
-// 	}
-// 	// x click
-// 	x[0].onclick = function () {
-// 		if (ind > 0) { ind-- }
-// 		whatMainHappen();
-// 	}
-// 	x[1].onclick = function () {
-// 		if (ind < 7) { ind++ }
-// 		whatMainHappen();
-// 	}
+for (var _i2 = 0; _i2 < horbut.length; _i2++) {
+  horbut[_i2].onclick = Hclick;
+}
 
-// 	//second click
-// 	for (i = 0; i < sb[ind].length; i++) {
-// 		sb[ind][i].onclick = Sclick;
-// 	}
-// 	function Sclick() {
-// 		for (i = 0; i < sb[ind].length; i++) {
-// 			// calling content - - - - - - - 
-// 			if (sb[ind][i] == this) {
-// 				if (i == num[ind]) {
-// 					scroll = false;
-// 					ms.style.top = -500;
-// 					ss[ind].style.left = -1500;
-// 					x[0].style.opacity = 0;
-// 					x[1].style.opacity = 0;
-// 					c[ind][num[ind]].style.opacity = 1;
-// 					c[ind][num[ind]].style.transform = "scale(1)";
-// 					//!remove content
-// 					c[ind][num[ind]].querySelector('.clickable').onclick = removeCont;
-// 					function removeCont() {
-// 						scroll = true;
-// 						ms.style.top = 300;
-// 						ss[ind].style.left = 350;
-// 						x[0].style.opacity = 1;
-// 						x[1].style.opacity = 1;
-// 						c[ind][num[ind]].style.opacity = 0;
-// 						c[ind][num[ind]].style.transform = "scale(0)";
-// 					}
-// 				}
-// 				// end of calling - - - - - - - 
-// 				else {
-// 					num[ind] = i;
-// 					console.log(ind + ";" + num[ind] + " - Sclick");
-// 					whatSecondHappen();
-// 				}
-// 			}
-// 		}
-// 	}
-// }
-// //second scroll
-// elem = document;
-// if (elem.addEventListener) {
-// 	if ('onwheel' in document) {
-// 		elem.addEventListener("wheel", onWheel);				// IE9+, FF17+, Ch31+
-// 	} else if ('onmousewheel' in document) {
-// 		elem.addEventListener("mousewheel", onWheel);			// устаревший вариант события
-// 	} else {
-// 		elem.addEventListener("MozMousePixelScroll", onWheel);	// Firefox < 17
-// 	}
-// } else {
-// 	elem.attachEvent("onmousewheel", onWheel);					// IE8-
-// }
-// function onWheel(e) {
-// 	if (scroll) {
-// 		delta = e.deltaY || e.detail || e.wheelDelta;
-// 		if (sb[ind].length > 1) {
-// 			if (num[ind] < 1) {
-// 				if (delta > 0) { num[ind]++ }
-// 			}
-// 			else if (num[ind] < sb[ind].length - 1) {
-// 				if (delta > 0) { num[ind]++ }
-// 				else { num[ind]-- }
-// 			}
-// 			else {
-// 				if (delta < 0) { num[ind]-- }
-// 			}
-// 			whatSecondHappen();
-// 			console.log(ind + ";" + num[ind] + " - wheel")
-// 		}
-// 	}
-// }
+for (var _i3 = 0; _i3 < ver.length; _i3++) {
+  for (var j = 0; j < verbut[_i3].length; j++) {
+    verbut[_i3][j].onclick = Vclick;
+  }
+}
+
+arrowl.onclick = Aclick;
+arrowr.onclick = Aclick; // !Задаём функции =====================================
+
+function Hclick() {
+  for (var _i4 = 0; _i4 < horbut.length; _i4++) {
+    if (this == horbut[_i4]) {
+      hind = _i4;
+    }
+  }
+
+  Htrans();
+  console.log(hind + ':' + vind[hind] + " - Hclick");
+}
+
+function Vclick() {
+  for (var _i5 = 0; _i5 < verbut[hind].length; _i5++) {
+    if (this == verbut[hind][_i5]) {
+      vind[hind] = _i5;
+    }
+  }
+
+  Vtrans();
+  console.log(hind + ':' + vind[hind] + " - Vclick");
+}
+
+function Aclick() {
+  console.log(hind + ':' + vind[hind] + " - Aclick");
+
+  if (this == arrowl) {
+    hind--;
+    Htrans();
+  } else if (this == arrowr) {
+    hind++;
+    Htrans();
+  }
+}
+
+function Htrans() {
+  //определим на сколько перемещать слайдеры
+  var horx = horleftpos - hind * horlefttrans,
+      allverx = allverleftpos - hind * allverlefttrans; // переместим
+
+  hor.style.left = horx + 'px';
+  allver.style.left = allverx + 'px'; // выделим выбранную кнопку
+
+  for (var _i6 = 0; _i6 < horbut.length; _i6++) {
+    horbut[_i6].classList.remove('horizontal__selected');
+
+    horbut[_i6].classList.add('horizontal__selectable');
+  }
+
+  horbut[hind].classList.remove('horizontal__selectable');
+  horbut[hind].classList.add('horizontal__selected'); // нужны ли стрелки?
+
+  if (hind == 0) {
+    arrowl.style.width = 0;
+  } else if (hind == horbut.length - 1) {
+    arrowr.style.width = 0;
+  } else {
+    arrowl.style.width = "20px";
+    arrowr.style.width = "20px";
+  } // выберем другой вертикальный слайдер
+
+
+  for (var _i7 = 0; _i7 < ver.length; _i7++) {
+    ver[_i7].style.opacity = 0;
+    ver[_i7].style.width = 0;
+  }
+
+  ver[hind].style.opacity = 1;
+  ver[hind].style.width = "auto";
+}
+
+function Vtrans() {
+  //определим на сколько перемещать слайдеры
+  var very = -(vind[hind] * vertoptrans); // переместим
+
+  ver[hind].style.top = very + 'px'; // выделим выбранную кнопку
+
+  for (var _i8 = 0; _i8 < verbut[hind].length; _i8++) {
+    verbut[hind][_i8].classList.remove('vertical__selected');
+
+    verbut[hind][_i8].classList.add('vertical__selectable');
+  }
+
+  verbut[hind][vind[hind]].classList.remove('vertical__selectable');
+  verbut[hind][vind[hind]].classList.add('vertical__selected');
+} // *Скроллинг ======================================================
+
+
+var d = document;
+
+if (d.addEventListener) {
+  if ('onwheel' in document) {
+    d.addEventListener("wheel", onWheel); // IE9+, FF17+, Ch31+
+  } else if ('onmousewheel' in document) {
+    d.addEventListener("mousewheel", onWheel); // устаревший вариант события
+  } else {
+    d.addEventListener("MozMousePixelScroll", onWheel); // Firefox < 17
+  }
+} else {
+  d.attachEvent("onmousewheel", onWheel); // IE8-
+}
+
+function onWheel(e) {
+  if (scroll) {
+    var delta = e.deltaY || e.detail || e.wheelDelta;
+
+    if (verbut[hind].length > 1) {
+      if (vind[hind] < 1) {
+        if (delta > 0) {
+          vind[hind]++;
+        }
+      } else if (vind[hind] < verbut[hind].length - 1) {
+        if (delta > 0) {
+          vind[hind]++;
+        } else {
+          vind[hind]--;
+        }
+      } else {
+        if (delta < 0) {
+          vind[hind]--;
+        }
+      }
+
+      Vtrans();
+      console.log(hind + ':' + vind[hind] + " - Scroll");
+    }
+  }
+}

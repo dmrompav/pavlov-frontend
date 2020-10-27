@@ -1,1 +1,250 @@
-<!doctype html5><html lang="ru"><head>	<meta charset="UTF-8">	<meta http-equiv="x-ua-compatible" content="ie=edge">	<meta name="google" content="notranslate">	<meta name="format-detection" content="telephone=no">	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">	<title>Frontend</title>	<meta name="description" content="The Portfolio of Dmitry Pavlov">	<meta name="keywords" content="WEB code HTML CSS SASS JS JavaScript ECMAScript ES BEM jQuery">	<link rel="icon" type="image/png" href="img/fav.png">	<link rel="apple-touch-icon" href="/custom-icon.png"> <!-- Apple Touch Icon -->	<meta name="msapplication-config" content="browserconfig.xml" /> <!-- Microsoft Tiles -->	<link rel="alternate" href="https://es.example.com/" hreflang="en"><!-- Страница с другим языком -->	<!-- Facebook -->	<meta property="og:type" content="website">	<meta property="og:url" content="https://example.com/page.html">	<meta property="og:title" content="Content Title">	<meta property="og:image" content="https://example.com/image.jpg">	<meta property="og:description" content="Description Here">	<meta property="og:site_name" content="Site Name">	<meta property="og:locale" content="en_US">	<!-- Twitter -->	<meta name="twitter:card" content="summary">	<meta name="twitter:site" content="@site_account">	<meta name="twitter:creator" content="@individual_account">	<meta name="twitter:url" content="https://example.com/page.html">	<meta name="twitter:title" content="Content Title">	<meta name="twitter:description" content="Описание контента короче 200 символов">	<meta name="twitter:image" content="https://example.com/image.jpg">	<!-- CSS -->	<link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">	<link rel="stylesheet" href="css/fonts.min.css">	<link rel="stylesheet" href="css/style.min.css"></head><!-- === BODY ================================== --><!-- body	other (waves, error, arrows)	nav - main slider		button x 8 [ind]			icon			text	section x 8 [ind] (all vertical sliders)		button x N [ind][num]			icon			text	main		section x 8 [ind]			article x N [ind][num] - content for every button--><body>	<div class="hi">Привет</div>	<div class="nojs">		<div class="nojs__load">Загрузка</div>		<div class="nojs__txt">Если загрузка не завершается: <br><br>			- возможно у Вас слабое интернет соединение <br>			- либо у Вас отключено выполнение JavaScript. <br>			Включите JS и перезагрузите страницу		</div>		<div class="nojs__links">			<a target="_blank" href="https://support.google.com/adsense/answer/12654?hl=ru"				class="nojs__link nojs__link_0">Как включить JS</a>			<a href="nojs.html" class="nojs__link nojs__link_1">Посмотреть без JS</a>		</div>	</div>	<div class="wow"><span>На боку мне некомфортно(</span></div>	<div class="waves">		<div class="waves__wave waves__wave_0"></div>		<div class="waves__wave waves__wave_1"></div>		<div class="waves__wave waves__wave_2"></div>		<div class="waves__wave waves__wave_3 waves__wave_reverse"></div>		<div class="waves__wave waves__wave_4 waves__wave_reverse"></div>		<div class="waves__wave waves__wave_5 waves__wave_reverse"></div>	</div>	<button type="button" class="mainx__left mainx">«</button>	<button type="button" class="mainx__right mainx">»</button>	<nav class="main">		<button type="button" class="main__block main__selected">			<div class="main__icon mi0"></div>			<h2 class="main__txt">Обо мне</h2>		</button>		<button type="button" class="main__block main__selectable">			<div class="main__icon mi1"></div>			<h2 class="main__txt">Мои проекты</h2>		</button>		<button type="button" class="main__block main__selectable">			<div class="main__icon mi2"></div>			<h2 class="main__txt">Мои навыки</h2>		</button>		<button type="button" class="main__block main__selectable">			<div class="main__icon mi3"></div>			<h2 class="main__txt">Прочтенные книги</h2>		</button>		<button type="button" class="main__block main__selectable">			<div class="main__icon mi4"></div>			<h2 class="main__txt">Скачать резюме</h2>		</button>		<button type="button" class="main__block main__selectable">			<div class="main__icon mi5"></div>			<h2 class="main__txt">Отзывы</h2>		</button>		<button type="button" class="main__block main__selectable">			<div class="main__icon mi6"></div>			<h2 class="main__txt">Свяжитесь со мной</h2>		</button>		<button type="button" class="main__block main__selectable">			<div class="main__icon mi7"></div>			<h2 class="main__txt">Настройки</h2>		</button>	</nav>	<section class="second s0">		<button type="button" class="second__block second__selected">			<div class="second__icon i0"></div>			<h3 class="second__txt">ПАВЛОВ ДМИТРИЙ<br>Frontend junior</h3>		</button>		<button type="button" class="second__block second__selectable">			<div class="second__icon i1"></div>			<h3 class="second__txt">О САЙТЕ</h3>		</button>	</section>	<section class="second s1">		<button type="button" class="second__block second__selected">			<div class="second__icon i0"></div>			<h3 class="second__txt">ИГРА-КЛИКЕР<br>Native JavaScript</h3>		</button>		<button type="button" class="second__block second__selectable">			<div class="second__icon i1"></div>			<h3 class="second__txt">КАЛЬКУЛЯТОР<br>Vue.js</h3>		</button>	</section>	<section class="second s2">		<button type="button" class="second__block second__selected">			<div class="second__icon i0"></div>			<h3 class="second__txt">HTML5<br>Pug, знание семантики</h3>		</button>		<button type="button" class="second__block second__selectable">			<div class="second__icon i1"></div>			<h3 class="second__txt">CSS<br>SASS, Flexbox, Grid</h3>		</button>		<button type="button" class="second__block second__selectable">			<div class="second__icon i2"></div>			<h3 class="second__txt">JAVASCRIPT<br>Чистый JS, jQuery, Vue.js, ES6+, Babel</h3>		</button>		<button type="button" class="second__block second__selectable">			<div class="second__icon i3"></div>			<h3 class="second__txt">PHOTOSHOP, FIGMA<br>Работаю с макетами</h3>		</button>		<button type="button" class="second__block second__selectable">			<div class="second__icon i4"></div>			<h3 class="second__txt">DX<br>Git, Gulp, VS Code, Emmet, DevTool</h3>		</button>		<button type="button" class="second__block second__selectable">			<div class="second__icon i5"></div>			<h3 class="second__txt">OTHER<br>PerfectPixel, адаптивность, кроссбраузерность</h3>		</button>		<button type="button" class="second__block second__selectable not-active">			<div class="second__icon i6">				<div class="inprocess"></div>			</div>			<h3 class="second__txt">PHP<br>В процессе...</h3>		</button>	</section>	<section class="second s3">		<button type="button" class="second__block second__selected not-active">			<div class="second__icon i0"></div>			<h3 class="second__txt">ГРОКАЕМ АЛГОРИТМЫ<br>Адитья Бхаргава</h3>		</button>		<button type="button" class="second__block second__selectable not-active">			<div class="second__icon i1"></div>			<h3 class="second__txt">JAVASCRIPT НА ПРАКТИКЕ<br>Никольский А.П.</h3>		</button>		<button type="button" class="second__block second__selectable not-active">			<div class="second__icon i2"></div>			<h3 class="second__txt">ВЫРАЗИТЕЛЬНЫЙ JAVASCRIPT<br>Марейн Хавербек</h3>		</button>		<button type="button" class="second__block second__selectable not-active">			<div class="second__icon i3">				<div class="inprocess"></div>			</div>			<h3 class="second__txt">КАК УСТРОЕН JAVASCRIPT<br>В процессе...</h3>		</button>	</section>	<section class="second s4">		<a href="" download class="second__block second__selected not-active">			<div class="second__icon i0"></div>			<h3 class="second__txt">СТАНДАРТНОЕ<br>hh.ru</h3>		</a>		<a href="" download class="second__block second__selectable not-active">			<div class="second__icon i1">				<div class="inprocess"></div>			</div>			<h3 class="second__txt">КРЕАТИВНОЕ (--Мб)<br>В процессе...</h3>		</a>	</section>	<section class="second s5">		<button type="button" class="second__block second__selected">			<div class="second__icon i0"></div>			<h3 class="second__txt">МАМА<br>Мой сын очень хороший мальчик...</h3>		</button>	</section>	<section class="second s6">		<a href="tel:+79961078823" class="second__block second__selected not-active">			<div class="second__icon i5"></div>			<h3 class="second__txt">PHONE<br><span>+7(996) 107-88-23</span></h3>		</a>		<a target="_blank" href="https://t.me/dmrompav" class="second__block second__selectable not-active">			<div class="second__icon i0"></div>			<h3 class="second__txt">TELEGRAM<br>Предпочитаемый способ связи</h3>		</a>		<a target="_blank" href="https://wa.me/79961078823/?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82,%20%D0%94%D0%B8%D0%BC%D0%B0!" class="second__block second__selectable not-active">			<div class="second__icon i1"></div>			<h3 class="second__txt">WHATSAPP<br>Предпочитаемый способ связи</h3>		</a>		<button class="second__block second__selectable">			<div class="second__icon i2"></div>			<h3 class="second__txt">GMAIL<br><span>dm.rom.pav@gmail.com</span></h3>		</button>		<a target="_blank" href="https://vk.com/dmrompav" class="second__block second__selectable not-active">			<div class="second__icon i3"></div>			<h3 class="second__txt">VK<br></h3>		</a>		<a target="_blank" href="https://www.instagram.com/dmrompav/" class="second__block second__selectable not-active">			<div class="second__icon i4"></div>			<h3 class="second__txt">INSTAGRAM<br></h3>		</a>	</section>	<section class="second s7">		<button class="second__block second__selected">			<div class="second__icon i0"></div>			<h3 class="second__txt">LANGUAGE<br>Russian</h3>		</button>		<button type="button" class="second__block second__selectable not-active">			<div class="second__icon i1 flip">				<div class="flip__square flip__square_0"></div>				<div class="flip__square flip__square_1"></div>			</div>			<h3 class="second__txt">ЦВЕТОВАЯ ТЕМА</h3>		</button>	</section>	<!-- !CONTENT=================================================== -->	<main class="cont">		<div class="clickable"></div>		<!-- ?COLUMN 0 -->		<section class="cont__ind i0">			<!-- COLUMN 0 ========= ROW 0-->			<article class="cont__ind_num">				<a target="_blank" href="https://github.com/dmrompav"><div  class="cont__icon" style="background-image: url(img/content/github.png);margin: 30px auto -10px auto;"></div></a>				<p>Привет, я начинающий frontend разработчик!</p>				<p></p>			</article>			<!-- COLUMN 0 ========= ROW 1-->			<article class="cont__ind_num">				<p>					Этот сайт сделан в целях демонстрации навыков и привлечения внимания потенциальных работодателей или					заказчиков. Он выполнен по подобию интерфейса PlayStation3 с использованием: HTML5, CSS3 и чистого JavaScript.				</p>				<p>					Всем кнопкам на странице автоматически присваивается значение [столбец]:[строчка], благодаря чему создается 					возможность добавления новых разделов без исправления существующей структуры кода.				</p>				<p>					<a href="https://github.com/dmrompav/pavlov">Посмотреть исходники можно тут</a>				</p>			</article>		</section>		<!-- *COLUMN 1 -->		<section class="cont__ind i1">			<!-- COLUMN 1 ========= ROW 0-->			<article class="cont__ind_num"></article>			<!-- COLUMN 1 ========= ROW 1-->			<article class="cont__ind_num"></article>			<!-- COLUMN 1 ========= ROW 2-->			<article class="cont__ind_num"></article>			<!-- COLUMN 1 ========= ROW 3-->			<article class="cont__ind_num"></article>			<!-- COLUMN 1 ========= ROW 4-->			<article class="cont__ind_num"></article>			<!-- COLUMN 1 ========= ROW 5-->			<article class="cont__ind_num"></article>			<!-- COLUMN 1 ========= ROW 6-->			<article class="cont__ind_num"></article>			<!-- COLUMN 1 ========= ROW 7-->			<article class="cont__ind_num"></article>		</section>		<!-- *COLUMN 2 -->		<section class="cont__ind i2">			<!-- COLUMN 2 ========= ROW 0-->			<article class="cont__ind_num"></article>			<!-- COLUMN 2 ========= ROW 1-->			<article class="cont__ind_num"></article>			<!-- COLUMN 2 ========= ROW 2-->			<article class="cont__ind_num"></article>			<!-- COLUMN 2 ========= ROW 3-->			<article class="cont__ind_num"></article>			<!-- COLUMN 2 ========= ROW 4-->			<article class="cont__ind_num"></article>			<!-- COLUMN 2 ========= ROW 5-->			<article class="cont__ind_num"></article>			<!-- COLUMN 2 ========= ROW 6-->			<article class="cont__ind_num"></article>			<!-- COLUMN 2 ========= ROW 7-->			<article class="cont__ind_num"></article>		</section>		<!-- *COLUMN 3 -->		<section class="cont__ind i3">		</section>		<!-- COLUMN 4 -->		<section class="cont__ind i4">		</section>		<!-- *COLUMN 5 -->		<section class="cont__ind i5">			<!-- COLUMN 5 ========= ROW 0-->			<article class="cont__ind_num">				<div class="cont__icon" style="background-image: url(img/icons/50.png);float: left;" ></div>				Мой сын очень хороший мальчик и замечательный программист: он умеет переустанавливать виндовс, подключать принтер и всё прочее, что делают программисты			</article>		</section>		<!-- *COLUMN 6 -->		<section class="cont__ind i6">			<!-- COLUMN 6 ========= ROW 0-->			<article class="cont__ind_num"></article>			<!-- COLUMN 6 ========= ROW 1-->			<article class="cont__ind_num"></article>			<!-- COLUMN 6 ========= ROW 2-->			<article class="cont__ind_num"></article>			<!-- COLUMN 6 ========= ROW 3-->			<article class="cont__ind_num"><a href="mailto:dm.rom.pav@gmail.com">dm.rom.pav@gmail.com</a></article>		</section>		<!-- *COLUMN 7 -->		<section class="cont__ind i7">			<!-- COLUMN 7 ========= ROW 0-->			<article class="cont__ind_num"><a href="#">English language page</a></article>			<!-- COLUMN 7 ========= ROW 1-->			<article class="cont__ind_num"></article>		</section>	</main>	<!-- === javascript ================================== -->	<script src="js/script.min.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Frontend (junior)</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="description" content=""> <!-- Описание - не более 140 символов -->
+    <meta name="keywords" content=""> <!-- Ключевые слова - не более 20 слов -->
+    <link rel="icon" type="image/png" href="img/fav.png"> <!-- Фавикон -->
+    <link rel="apple-touch-icon" href="/custom-icon.png"> <!-- Apple Touch Icon -->
+    <meta name="msapplication-config" content="browserconfig.xml" /> <!-- Microsoft Tiles -->
+    <link rel="canonical" href="http://example.com/2017/09/a-new-article-to-red.html"> <!-- Приоритет -->
+    <link rel="alternate" href="https://es.example.com/" hreflang="es"><!-- Страница с другим языком -->
+    <!-- Фейсбук -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/page.html">
+    <meta property="og:title" content="Content Title">
+    <meta property="og:image" content="https://example.com/image.jpg">
+    <meta property="og:description" content="Description Here">
+    <meta property="og:site_name" content="Site Name">
+    <meta property="og:locale" content="en_US"> <!-- Твиттер -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@site_account">
+    <meta name="twitter:creator" content="@individual_account">
+    <meta name="twitter:url" content="https://example.com/page.html">
+    <meta name="twitter:title" content="Content Title">
+    <meta name="twitter:description" content="Описание контента короче 200 символов">
+    <meta name="twitter:image" content="https://example.com/image.jpg"> <!-- CSS -->
+    <link rel="stylesheet" href="css/fonts.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+    <div class="waves">
+        <div class="wave wave_1"></div>
+        <div class="wave wave_2"></div>
+        <div class="wave wave_3"></div>
+        <div class="wave wave_4 wave_rev"></div>
+        <div class="wave wave_5 wave_rev"></div>
+        <div class="wave wave_6 wave_rev"></div>
+    </div><button class="arrow arrow_left">
+        << </button><button class="arrow arrow_right">>></button>
+            <nav class="horizontal"> <button class="horizontal__button horizontal__button_1 horizontal__selected">
+                    <div class="horizontal__icon horizontal__icon_1"></div>
+                    <h2 class="horizontal__text">Обо мне</h2>
+                </button> <button class="horizontal__button horizontal__button_2 horizontal__selectable">
+                    <div class="horizontal__icon horizontal__icon_2"></div>
+                    <h2 class="horizontal__text">Мои проекты</h2>
+                </button> <button class="horizontal__button horizontal__button_3 horizontal__selectable">
+                    <div class="horizontal__icon horizontal__icon_3"></div>
+                    <h2 class="horizontal__text">Мои навыки</h2>
+                </button> <button class="horizontal__button horizontal__button_4 horizontal__selectable">
+                    <div class="horizontal__icon horizontal__icon_4"></div>
+                    <h2 class="horizontal__text">Прочтенные книги</h2>
+                </button> <button class="horizontal__button horizontal__button_5 horizontal__selectable">
+                    <div class="horizontal__icon horizontal__icon_5"></div>
+                    <h2 class="horizontal__text">Мое резюме</h2>
+                </button> <button class="horizontal__button horizontal__button_6 horizontal__selectable">
+                    <div class="horizontal__icon horizontal__icon_6"></div>
+                    <h2 class="horizontal__text">Отзывы</h2>
+                </button> <button class="horizontal__button horizontal__button_7 horizontal__selectable">
+                    <div class="horizontal__icon horizontal__icon_7"></div>
+                    <h2 class="horizontal__text">Свяжитесь со мной</h2>
+                </button> <button class="horizontal__button horizontal__button_8 horizontal__selectable">
+                    <div class="horizontal__icon horizontal__icon_8"></div>
+                    <h2 class="horizontal__text">Настройки</h2>
+                </button></nav>
+            <div class="allvertical">
+                <nav class="vertical vertical_1"> <button class="vertical__button vertical__button_1 vertical__selected">
+                        <div class="vertical__icon vertical__icon_11"></div>
+                        <h3 class="vertical__text">Павлов Дмитрий<br/><span class="vertical__undertext">Frontend junior</span></h3>
+                    </button> <button class="vertical__button vertical__button_2 vertical__selectable">
+                        <div class="vertical__icon vertical__icon_12"></div>
+                        <h3 class="vertical__text">О сайте<br/><span class="vertical__undertext"></span></h3>
+                    </button> </nav>
+                <nav class="vertical vertical_2"> <button class="vertical__button vertical__button_1 vertical__selected">
+                        <div class="vertical__icon vertical__icon_21"></div>
+                        <h3 class="vertical__text">First item<br/><span class="vertical__undertext"></span></h3>
+                    </button> <button class="vertical__button vertical__button_2 vertical__selectable">
+                        <div class="vertical__icon vertical__icon_22"></div>
+                        <h3 class="vertical__text">Second item<br/><span class="vertical__undertext"></span></h3>
+                    </button> </nav>
+                <nav class="vertical vertical_3"> <button class="vertical__button vertical__button_1 vertical__selected">
+                        <div class="vertical__icon vertical__icon_31"></div>
+                        <h3 class="vertical__text">Английский язык<br/><span class="vertical__undertext">Intermediate</span></h3>
+                    </button> <button class="vertical__button vertical__button_2 vertical__selectable">
+                        <div class="vertical__icon vertical__icon_32"></div>
+                        <h3 class="vertical__text">Html5<br/><span class="vertical__undertext">Pug</span></h3>
+                    </button> <button class="vertical__button vertical__button_3 vertical__selectable">
+                        <div class="vertical__icon vertical__icon_33"></div>
+                        <h3 class="vertical__text">Css<br/><span class="vertical__undertext">SCSS, Flexbox, Grid</span></h3>
+                    </button> <button class="vertical__button vertical__button_4 vertical__selectable">
+                        <div class="vertical__icon vertical__icon_34"></div>
+                        <h3 class="vertical__text">Javascript<br/><span class="vertical__undertext">ES6+, Babel</span></h3>
+                    </button> <button class="vertical__button vertical__button_5 vertical__selectable">
+                        <div class="vertical__icon vertical__icon_35"></div>
+                        <h3 class="vertical__text">Фреймворки<br/><span class="vertical__undertext">jQuery, Vue.js</span></h3>
+                    </button> <button class="vertical__button vertical__button_6 vertical__selectable">
+                        <div class="vertical__icon vertical__icon_36"></div>
+                        <h3 class="vertical__text">Photoshop, figma<br/><span class="vertical__undertext"></span></h3>
+                    </button> <button class="vertical__button vertical__button_7 vertical__selectable">
+                        <div class="vertical__icon vertical__icon_37"></div>
+                        <h3 class="vertical__text">DX<br/><span class="vertical__undertext">Git, Gulp, VSCode, Emmet, DevTool</span></h3>
+                    </button> <button class="vertical__button vertical__button_8 vertical__selectable">
+                        <div class="vertical__icon vertical__icon_38"></div>
+                        <h3 class="vertical__text">Прочее<br/><span class="vertical__undertext">PerfectPixel, адаптивность, кроссбраузерность</span></h3>
+                    </button> <button class="vertical__button vertical__button_8 vertical__selectable">
+                        <div class="vertical__icon vertical__icon_39 inprocess">
+                            <div class="inprocess__loader"></div>
+                        </div>
+                        <h3 class="vertical__text">PHP<br/><span class="vertical__undertext">В процессе...</span></h3>
+                    </button> </nav>
+                <nav class="vertical vertical_4"> <button class="vertical__button vertical__button_1 vertical__selected typenoclick">
+                        <div class="vertical__icon vertical__icon_41"></div>
+                        <h3 class="vertical__text">Грокаем Алгоритмы<br/><span class="vertical__undertext">Адитья Бхаргава</span></h3>
+                    </button> <button class="vertical__button vertical__button_2 vertical__selectable typenoclick">
+                        <div class="vertical__icon vertical__icon_42"></div>
+                        <h3 class="vertical__text">JavaScript на примерах<br/><span class="vertical__undertext">Никольский А.П.</span></h3>
+                    </button> <button class="vertical__button vertical__button_3 vertical__selectable typenoclick">
+                        <div class="vertical__icon vertical__icon_43"></div>
+                        <h3 class="vertical__text">Выразительный JavaScript<br/><span class="vertical__undertext">Марейн Хавербек</span></h3>
+                    </button> </nav>
+                <nav class="vertical vertical_5"> <button class="vertical__button vertical__button_1 vertical__selected typelink">
+                        <div class="vertical__icon vertical__icon_51"></div>
+                        <h3 class="vertical__text">Стандартное<br/><span class="vertical__undertext">hh.ru</span></h3>
+                    </button> <button class="vertical__button vertical__button_2 vertical__selectable typelink">
+                        <div class="vertical__icon vertical__icon_52"></div>
+                        <h3 class="vertical__text">Креативное (--мб)<br/><span class="vertical__undertext">В процессе</span></h3>
+                    </button> </nav>
+                <nav class="vertical vertical_6"> <button class="vertical__button vertical__button_1 vertical__selected">
+                        <div class="vertical__icon vertical__icon_61"></div>
+                        <h3 class="vertical__text">Мама<br/><span class="vertical__undertext">Мой сын очень хороший мальчик...</span></h3>
+                    </button> </nav>
+                <nav class="vertical vertical_7"> <button class="vertical__button vertical__button_1 vertical__selected typelink">
+                        <div class="vertical__icon vertical__icon_71"></div>
+                        <h3 class="vertical__text">Phone<br/><span class="vertical__undertext">+7(996) 107-88-23</span></h3>
+                    </button> <button class="vertical__button vertical__button_2 vertical__selectable typelink">
+                        <div class="vertical__icon vertical__icon_72"></div>
+                        <h3 class="vertical__text">Telegram<br/><span class="vertical__undertext">Предпочитаемый способ связи</span></h3>
+                    </button> <button class="vertical__button vertical__button_3 vertical__selectable typelink">
+                        <div class="vertical__icon vertical__icon_73"></div>
+                        <h3 class="vertical__text">WhatsApp<br/><span class="vertical__undertext">Предпочитаемый способ связи</span></h3>
+                    </button> <button class="vertical__button vertical__button_4 vertical__selectable typelink">
+                        <div class="vertical__icon vertical__icon_74"></div>
+                        <h3 class="vertical__text">Gmail<br/><span class="vertical__undertext">dm.rom.pav@gmail.com</span></h3>
+                    </button> <button class="vertical__button vertical__button_5 vertical__selectable typelink">
+                        <div class="vertical__icon vertical__icon_75"></div>
+                        <h3 class="vertical__text">Instagram<br/><span class="vertical__undertext"></span></h3>
+                    </button> </nav>
+                <nav class="vertical vertical_8"> <button class="vertical__button vertical__button_1 vertical__selected">
+                        <div class="vertical__icon vertical__icon_81"></div>
+                        <h3 class="vertical__text">Language<br/><span class="vertical__undertext">Russian</span></h3>
+                    </button> <button class="vertical__button vertical__button_2 vertical__selectable typeflip">
+                        <div class="vertical__icon vertical__icon_82">
+                            <div class="flip flip__blue"></div>
+                            <div class="flip flip__red"></div>
+                        </div>
+                        <h3 class="vertical__text">Цветовая тема<br/><span class="vertical__undertext"></span></h3>
+                    </button> </nav>
+            </div>
+            <main class="main">
+                <div class="tapfield"></div>
+                <article class="group group_1">
+                    <section class="info info__1_1"></section>
+                    <section class="info info__1_2"></section>
+                    <section class="info info__1_3"></section>
+                    <section class="info info__1_4"></section>
+                    <section class="info info__1_5"></section>
+                    <section class="info info__1_6"></section>
+                    <section class="info info__1_7"></section>
+                    <section class="info info__1_8"></section>
+                </article>
+                <article class="group group_2">
+                    <section class="info info__2_1"></section>
+                    <section class="info info__2_2"></section>
+                    <section class="info info__2_3"></section>
+                    <section class="info info__2_4"></section>
+                    <section class="info info__2_5"></section>
+                    <section class="info info__2_6"></section>
+                    <section class="info info__2_7"></section>
+                    <section class="info info__2_8"></section>
+                </article>
+                <article class="group group_3">
+                    <section class="info info__3_1"></section>
+                    <section class="info info__3_2"></section>
+                    <section class="info info__3_3"></section>
+                    <section class="info info__3_4"></section>
+                    <section class="info info__3_5"></section>
+                    <section class="info info__3_6"></section>
+                    <section class="info info__3_7"></section>
+                    <section class="info info__3_8"></section>
+                </article>
+                <article class="group group_4">
+                    <section class="info info__4_1"></section>
+                    <section class="info info__4_2"></section>
+                    <section class="info info__4_3"></section>
+                    <section class="info info__4_4"></section>
+                    <section class="info info__4_5"></section>
+                    <section class="info info__4_6"></section>
+                    <section class="info info__4_7"></section>
+                    <section class="info info__4_8"></section>
+                </article>
+                <article class="group group_5">
+                    <section class="info info__5_1"></section>
+                    <section class="info info__5_2"></section>
+                    <section class="info info__5_3"></section>
+                    <section class="info info__5_4"></section>
+                    <section class="info info__5_5"></section>
+                    <section class="info info__5_6"></section>
+                    <section class="info info__5_7"></section>
+                    <section class="info info__5_8"></section>
+                </article>
+                <article class="group group_6">
+                    <section class="info info__6_1"></section>
+                    <section class="info info__6_2"></section>
+                    <section class="info info__6_3"></section>
+                    <section class="info info__6_4"></section>
+                    <section class="info info__6_5"></section>
+                    <section class="info info__6_6"></section>
+                    <section class="info info__6_7"></section>
+                    <section class="info info__6_8"></section>
+                </article>
+                <article class="group group_7">
+                    <section class="info info__7_1"></section>
+                    <section class="info info__7_2"></section>
+                    <section class="info info__7_3"></section>
+                    <section class="info info__7_4"></section>
+                    <section class="info info__7_5"></section>
+                    <section class="info info__7_6"></section>
+                    <section class="info info__7_7"></section>
+                    <section class="info info__7_8"></section>
+                </article>
+                <article class="group group_8">
+                    <section class="info info__8_1"></section>
+                    <section class="info info__8_2"></section>
+                    <section class="info info__8_3"></section>
+                    <section class="info info__8_4"></section>
+                    <section class="info info__8_5"></section>
+                    <section class="info info__8_6"></section>
+                    <section class="info info__8_7"></section>
+                    <section class="info info__8_8"></section>
+                </article>
+            </main> <!-- === javascript ================================== -->
+            <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script> -->
+            <script src="js/script.min.js"></script>
+</body>
+
+</html>
