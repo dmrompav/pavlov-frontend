@@ -114,6 +114,11 @@ body {
   overflow: hidden;
 }
 
+a,
+a:visited {
+  color: #f7f1e3;
+}
+
 .wave {
   background-image: url("../img/wave.png");
   position: fixed;
@@ -229,9 +234,9 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: start;
-  -webkit-transition: left 0.2s ease-in-out;
-  -o-transition: left 0.2s ease-in-out;
-  transition: left 0.2s ease-in-out;
+  -webkit-transition: left 0.2s ease-in-out, top 0.2s ease, opacity 0.1s;
+  -o-transition: left 0.2s ease-in-out, top 0.2s ease, opacity 0.1s;
+  transition: left 0.2s ease-in-out, top 0.2s ease, opacity 0.1s;
 }
 
 .horizontal__selectable > .horizontal__text {
@@ -253,9 +258,9 @@ body {
 
 .allvertical {
   position: relative;
-  -webkit-transition: left 0.2s ease-in-out;
-  -o-transition: left 0.2s ease-in-out;
-  transition: left 0.2s ease-in-out;
+  -webkit-transition: left 0.2s ease-in-out, opacity 0.1s;
+  -o-transition: left 0.2s ease-in-out, opacity 0.1s;
+  transition: left 0.2s ease-in-out, opacity 0.1s;
 }
 
 .vertical {
@@ -271,13 +276,13 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: start;
-  margin-left: 50px;
+  margin-left: 25px;
   width: 0;
   opacity: 0;
   overflow: hidden;
-  -webkit-transition: opacity 1s ease-out, top 0.2s ease;
-  -o-transition: opacity 1s ease-out, top 0.2s ease;
-  transition: opacity 1s ease-out, top 0.2s ease;
+  -webkit-transition: opacity 0.5s ease-out, top 0.2s ease;
+  -o-transition: opacity 0.5s ease-out, top 0.2s ease;
+  transition: opacity 0.5s ease-out, top 0.2s ease;
 }
 
 .vertical_1 {
@@ -287,35 +292,36 @@ body {
 }
 
 .vertical_2 {
-  left: 200px;
+  left: 150px;
 }
 
 .vertical_3 {
-  left: 400px;
+  left: 300px;
 }
 
 .vertical_4 {
-  left: 600px;
+  left: 450px;
 }
 
 .vertical_5 {
-  left: 800px;
+  left: 600px;
 }
 
 .vertical_6 {
-  left: 1000px;
+  left: 750px;
 }
 
 .vertical_7 {
-  left: 1200px;
+  left: 900px;
 }
 
 .vertical_8 {
-  left: 1400px;
+  left: 1050px;
 }
 
 .vertical__button {
-  min-width: 320px;
+  min-width: 95vw;
+  max-width: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -370,11 +376,11 @@ body {
   height: 70px;
   background-repeat: no-repeat;
   background-size: 100%;
-  -webkit-transition: -webkit-transform 0.1s ease-in-out, -webkit-filter 0.1s ease;
-  transition: -webkit-transform 0.1s ease-in-out, -webkit-filter 0.1s ease;
-  -o-transition: transform 0.1s ease-in-out, filter 0.1s ease;
-  transition: transform 0.1s ease-in-out, filter 0.1s ease;
-  transition: transform 0.1s ease-in-out, filter 0.1s ease, -webkit-transform 0.1s ease-in-out, -webkit-filter 0.1s ease;
+  -webkit-transition: -webkit-transform 0.1s ease-in-out;
+  transition: -webkit-transform 0.1s ease-in-out;
+  -o-transition: transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
 }
 
 .vertical__icon_11 {
@@ -508,6 +514,12 @@ body {
           animation: inprocess 1s linear infinite;
 }
 
+.typeflip {
+  position: relative;
+  -webkit-perspective: 300px;
+          perspective: 300px;
+}
+
 .typeflip > .vertical__icon {
   -webkit-filter: none;
           filter: none;
@@ -519,13 +531,18 @@ body {
 }
 
 .flip {
-  width: 100%;
-  height: 100%;
+  width: 70px;
+  height: 70px;
   position: absolute;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   border: 3px solid #f7f1e3;
   border-radius: 30%;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  -o-transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 
 .flip__blue {
@@ -540,44 +557,69 @@ body {
 
 .main {
   z-index: 0;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 .tapfield {
   position: fixed;
   z-index: 29;
   width: 100vw;
-  height: 100vh;
+  height: 0;
+  overflow: hidden;
   cursor: pointer;
 }
 
 .group {
   z-index: 30;
   position: absolute;
-  width: 1200px;
-  max-width: 80vw;
+  width: 100vw;
   height: 100vh;
-}
-
-.info {
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: visible;
-  background-color: rgba(0, 0, 0, 0.1);
-  margin: 0 auto 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
           transform: scale(0);
-  opacity: 1;
+}
+
+.close {
+  z-index: 50;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 34px;
+  font-family: sans-serif;
+  color: #f7f1e3;
+  cursor: pointer;
+}
+
+.info {
+  z-index: 40;
+  position: fixed;
+  width: 1200px;
+  max-width: 80vw;
+  padding: 50px 10px;
+  overflow-x: hidden;
+  overflow-y: visible;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
 @-webkit-keyframes inprocess {
@@ -611,7 +653,7 @@ body {
   }
 
   .horizontal__button {
-    width: 200px;
+    width: 150px;
     -webkit-transition: opacity 0.1s ease;
     -o-transition: opacity 0.1s ease;
     transition: opacity 0.1s ease;
@@ -652,16 +694,16 @@ body {
   }
 
   .horizontal__icon {
-    margin: 0 50px 0 50px;
+    margin: 0 25px 0 25px;
     width: 100px;
     height: 100px;
     background-repeat: none;
     background-size: 100%;
-    -webkit-transition: -webkit-transform 0.1s ease-in-out, -webkit-filter 0.1s ease;
-    transition: -webkit-transform 0.1s ease-in-out, -webkit-filter 0.1s ease;
-    -o-transition: transform 0.1s ease-in-out, filter 0.1s ease;
-    transition: transform 0.1s ease-in-out, filter 0.1s ease;
-    transition: transform 0.1s ease-in-out, filter 0.1s ease, -webkit-transform 0.1s ease-in-out, -webkit-filter 0.1s ease;
+    -webkit-transition: -webkit-transform 0.1s ease-in-out;
+    transition: -webkit-transform 0.1s ease-in-out;
+    -o-transition: transform 0.1s ease-in-out;
+    transition: transform 0.1s ease-in-out;
+    transition: transform 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
   }
 
   .horizontal__icon_1 {
