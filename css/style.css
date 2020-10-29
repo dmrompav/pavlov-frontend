@@ -56,8 +56,6 @@ button {
   font: inherit;
   color: inherit;
   background-color: transparent;
-  cursor: pointer;
-  outline: none;
 }
 
 input::-ms-clear {
@@ -71,6 +69,10 @@ button {
 button::-moz-focus-inner {
   padding: 0;
   border: 0;
+}
+
+a, a:hover, a:focus, a:active, button, button:focus, button:active {
+  outline: none !important;
 }
 
 a,
