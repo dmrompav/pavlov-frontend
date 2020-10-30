@@ -322,10 +322,10 @@ function onWheel(e) {
     }
   }
 } // !!!SWIPE ========================================================
-// document.addEventListener('mousedown', Swipe, false);
-// document.addEventListener('mousemove', MouseMove, false);
 
 
+document.addEventListener('mousedown', Swipe, false);
+document.addEventListener('mousemove', MouseMove, false);
 document.addEventListener('touchstart', Swipe, false);
 document.addEventListener('touchmove', TouchMove, false);
 var X,
@@ -351,8 +351,8 @@ function MouseMove(e) {
 }
 
 function TouchMove(e) {
-  X = e.changedTouches[0].pageX;
-  Y = e.changedTouches[0].pageY;
+  X = e.targetTouches[0].pageX;
+  Y = e.targetTouches[0].pageY;
   console.log(X + ':' + Y);
 }
 
@@ -421,8 +421,8 @@ function Swipe() {
         verswi = y - y0;
       }
     }
-  }, 50); // document.addEventListener('mouseup', EndSwipe, false);
-
+  }, 50);
+  document.addEventListener('mouseup', EndSwipe, false);
   document.addEventListener('touchend', EndSwipe, false);
 }
 
